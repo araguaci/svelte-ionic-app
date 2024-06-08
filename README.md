@@ -1,178 +1,274 @@
-# Ionic Svelte UI demo
-A showcase app for all Ionic UI elements - up to Ionic 5!!! Use this app to try-out the elements you like for your app, and then navigate directly to the API docs or the source code.
+<h1 align="center"> Ionic SvelteKit </h1> <br>
+<p align="center">
+  <a href="https://ionic-svelte.firebaseapp.com">
+    <img alt="IonicSvelte" title="IonicSvelteKit" src="https://github.com/Tommertom/svelte-ionic-app/raw/main/demo-app/static/assets/svelte-ionic-logo.png" width="350">
+  </a>
 
-Secondly, it is a boilerplate to start developing an Ionic/Svelte/PWA supercharged app (WIP) 
+</p>
+<br>
+<p align="center">
+  A library to include Ionic in your Svelte and SvelteKit app 
+</p>
+<br>
 
-Published as web app: https://ionicsvelte.firebaseapp.com
+<p align="center">
+  <a href="https://ionic-svelte.firebaseapp.com">
+    <img alt="Download as PWA" title="PWA power" src="https://github.com/Tommertom/svelte-ionic-app/raw/main/demo-app/static/assets/img/pwa-download.png" width="140"  target="_blank">
+  </a>
+</p>
+Click the PWA Launch button to see this app live in action - and install as PWA on your desktop or mobile!
+<br><br>
 
-Hint: try reactivity of the app by using various devices or the Chrome developer view: iOS, Android's material design and fullscreen desktop responsiveness guaranteed!
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![MIT license](https://img.shields.io/greasyfork/l/407466?style=flat-square)](./LICENSE.md)
+[![Forks](https://img.shields.io/badge/forks-35-yellowgreen?style=flat-square)](https://github.com/Tommertom/svelte-ionic-app/fork)
+[![Forks](https://img.shields.io/github/stars/tommertom/svelte-ionic-app?style=flat-square)](https://img.shields.io/github/stars/tommertom/svelte-ionic-app?style=flat-square)
+[![Forks](https://img.shields.io/badge/watching-15-orange)](https://img.shields.io/badge/watching-15-orange)
 
-If you want to run it locally:
+NPM library to go along with the Ionic Svelte integration demonstrated at https://ionic-svelte.firebaseapp.com.
 
-```bash
-npm install -g degit
-degit Tommertom/svelte-ionic-app svelte-ionic-app
-cd svelte-ionic-app
-npm i
-npm run dev
+## How to get started - npm create ionic-svelte-app@latest
+
+On the CLI just type `npm create ionic-svelte-app@latest` to spin a SvelteKit project from the CLI. This will
+do all the lifting for you to create a SvelteKit SPA app.
+
+## Show me Ionic!
+
+A showcase app for all Ionic UI elements, Supercharged by SvelteKit can be found at https://ionic-svelte.firebaseapp.com. This also has a handy tool to show the source code for Svelte - and even Angular, VanillaJS, Vue, React and stencil!
+
+And the code on how to use the components - repo at https://github.com/Tommertom/svelte-ionic-app/tree/main/demo-app
+
+## How to get started - manual import of ionic-svelte library
+
+Start a new SvelteKit project (or Svelte with Vite, even though I prefer Kit). Skip this part if you already have a project
+
+```
+npm create svelte@latest my-app
+cd my-app
+npm install
 ```
 
-The app will be served on `localhost:5000`.
+We need adapter static + `ssr=false`, because Ionic package cannot run in SSR=true.
 
-Please note: livereload not enabled (see `rollup.config.js`) because of issue in development environment.
+I am chosing to deploy via adapter-static (to Firebase hosting), but if you deploy to Cloudflare, Vercel or Netflify you can opt to do differently. I checked with Vercel and that works still very well.
 
-All items also available as individual REPLs: https://github.com/Tommertom/svelte-ionic-app/blob/master/REPLS.md
+- `npm i -D @sveltejs/adapter-static`
+- `import adapter from '@sveltejs/adapter-static'` in `svelte.config.js`
+- `npm remove @sveltejs/adapter-auto`
+- Configure adapter static: https://github.com/sveltejs/kit/tree/master/packages/adapter-static
 
-# User requests
-If you have user requests, please raise an issue @ github, or drop a note using the "RateMe" feature in the menu. Some of these comments received and resolved:
-- Margin in the SourceViewer
-- Stop the begging for Rating
-
-Please check the issue list for other issues resolved. 
-
-I am very happy to get feedback and to make it more usefull to all!
-
-**NEW FEATURE: click to view source! For all components (except tab) you can click the lower right source button to view the source and copy/paste in your app. If you use fullscreen view, the menu will be a sidepanel instead of a hamburger!**
-
-**NEW FEATURE: click on share button in source view to link directly to the Ionic API docs**
-
-**NEW FEATURE: almost all UI elements have a separate REPL (coding playground)**
-
-**NEW FEATURE: Web Animations API included (see Avatars)**
-
-**NEW FEATURE: TYPESCRIPT ARRIVED!!!!! Configuration done and usable via `<script lang="ts">`**
-
-(I just need to add some types to the IonicController.ts so you don't get red curls)
-
-**NEW FEATURE: JAVASCRIPT CODE ADDED!!!**
-
-**NEW FEATURE: RATE ME FEATURE ADDED**
-
-Yes, I like to get your feedback!
-And I do wonder why I cant get the navigated URL as a store, so I had to make a separate one...
-
-All features (vision/realised) 
-- Rate me - popup to see hear what your user thinks (100%)
-- Configured for Typescript usage (100%)
-- Web Animations API (see Avatars - 100% done)
-- All Ionic Framework UI components showcased (100% done)
-- Run as SPA - Filesystem router via Routify (100% done)
-- Code splitting - lazy loading of routes (100%)
-- Service Worker setup via workbox (75% - not really doing much this way) 
-- PWA compliance via Ligthouse score (80% - biggest issue: no 200 when offline)
-- RXJS usage (100%)
-- Localstorage via localforage (100%)
-- Firebase SDK - analytics/firestore (100%)
-- Capacitor for mobile native support (100%)
-- Ionic Theming in local styles and global CSS (100%)
-- REPLs for each element (100%)
-- Source code previewer (100%)
-- Cookie Popup (100%)
-- Ionic included as asset, not CDN (100%)
-- Setting global CSS variables - (https://ionicframework.com/docs/theming/css-variables (100%) - see App.svelte)
-
-<img alt="Screen1.PNG" src="https://raw.githubusercontent.com/Tommertom/svelte-ionic-app/master/doc/Screen1.PNG" width="75%" >
-
-And the source view with copy feature and you can select text with the mouse:
-<img alt="Screen2.PNG" src="https://raw.githubusercontent.com/Tommertom/svelte-ionic-app/master/doc/Screen2.PNG" width="75%" >
-
-Do you like this work? Please star this project! 
-
-# Known issues
-
-## Not an issue but good to note: Typescript full usage may require typings for some packages
-These are not always available for all packages used in this project, and hence not applied.
-
-## Searchbar cancel ionCancel does not fire
-I think I need to debug a bit more, because ionInput does fire..... And the show-cancel-button "never" also does not work.
-
-## REPLs are Ionic 4
-The REPLs are Ionic 4. I think they still sufficiently serve purpose to play around with the UI, so for now I won't bother too much updating them.
-
-## ion-back-button does not show
-Ion Back Button does not appear in the app. Neither in a REPL. Made a custom version.
-
-## Altdetails is not taking the route argument
-Needing some debugging - A NAV in the TAB is not working properly
-
-## Capacitor Clipboard on iOS does not copy
-Copy of sourcecode on iOS does not seem to work.
-
-## Pane integration is WIP
-Pane needs ion-content  to be set to `scroll-y:false` to avoid strange UI on some devices.
-
-## PWA no 200 when offline
-This is something that requires a bit more work on my end - finding the right toolbox to do 200 when offline and at the same time a developer friendly implementation for changes. Probably it exists already, but just need to research a bit more.
-
-## Navigation through href isn't as pretty 
-In Cards there is a link that navigates away from the current page. It does not nicely replace the page, as it fully reloads. That is not very nice if you ask me, so you have to use a `navigate` method instead of href. That is a bit unfortunate if you ask me (from SEO perspective - correct?)
-
-# Remarks while working on Ionic - Svelte integration
-
-## Setting properties for Ionic Elements
-If you want to set properties for Ionic elements, you need to use the `attribute` as defined in the docs. Example:
-- not ok: `<ion-content scrollX="true">...</ion-content>`
-- ok: `<ion-content scroll-x="true>...</ion-content>`
-
-## Nav needs customElement
-Not necessarily an issue, but still a bit undesireable to make a custom element to be using a IonNav (as in `<ion-nav root="my-element">`). Therefore made IonNav.svelte to handle this and developers can include svelte component instead of manually registering a customElement.
-
-## IonTabs selected Tab 
-I raised an issue @ Ionic for selected-tab not selecting te default tab as per Ionic's documentation. https://github.com/ionic-team/ionic/issues/20060
-
-## IonNav does not work in tabs
-This seems to be related to the ionic router that is not working for me.  IonPage.svelte could be a replacement for a flyin type of animation.
-
-## Want local install of Ionic lib?
-Local install (in index.html):
 ```
-    <script type="module" src='/assets/libs/@ionic/core/dist/ionic/ionic.js'></script>
-    <link rel="stylesheet" href="/assets/libs/@ionic/core/css/ionic.bundle.css" />
+adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html',
+			precompress: false
+		})
 ```
-Obviously you need to put the NPM lib of @ionic in the assets folder.
 
-# Todo's
-A number of todo's:
-- Copy snippets of source code
-- Implement workbox and spassr as shown in the startertemplate of routify (or at least check)
-- ~~fix IonTab~~
-- ~~fix Ionic Menu close, go through all components and fix some messages~~
-- ~~research some of the warnings after Ionic 5 migration~~
-- ~~Ionic 5 add-ons not present in Ionic 4 (to figure out which ones)~~
-- ~~UI elements missing: VirtualScroll skipped~~
-- ~~add the popoover and other controller related items~~
-- ~~try the css styling as per documentation (theming)~~
-- ~~look at awesome rollup and add typescript -~~ not mature enough!!
-- ~~fix rollup copy of files in assets folder~~
-- ~~do some binding on inputs and other interactive elements~~
-- ~~ionicons for menu - colors and other names~~
-- ~~ionicons part has some unknown icons, make larger~~
-- make it a better PWA - need to work on the service worker - https://developers.google.com/web/tools/workbox/guides/get-started
-- ~~better names for controller API?~~
-- ~~NAV over tab~~
-- ~~make it more sveltish (code, store, bindings, animations)~~
-- ~~publish on firebase hosting~~
-- ~~try some cordova/ionic native - no web features I need~~
-- ~~singleton classes https://alligator.io/js/js-singletons/~~
-- ~~place routes in better place (pages folder probably, to avoid repeating /../)~~
-- ~~consider Contexts for exposing controllers~~
-- ~~split pane~~
-- ~~searchbox in ionicons~~
-- add non Ionic elements to complete UI: 
-    - chat ui and other social elements (https://github.com/thenaim/ionic-tk-social-network)
-    - ~~Stimeline~~S
-    - accordion
-    - ~~pane~~ 
-- ~~SSR~~
-- ~~to docs link https://ionicframework.com/docs/api/input~~
-- https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/
-- https://github.com/pngwn/prism-svelte or something else that works
-- ~~REPLs~~
-- ~~change router? https://github.com/qutran/swheel, https://github.com/jorgegorka/svelte-router/blob/master/README.md~~
-- source code formatter in HTML
-- Font Awesome icons
-- ~~Web Animations API trial - see Avatars~~
-- ~~replace manual route filter with ignore option~~
-- ~~Sseek ways to include in rollup bundler instead of script include~~S
-- ~~SIonic 5 migration - once it is fully released - already some breaking changes~~S
+- Pages that use Ionic need to have ssr disabled in their layout files (if not earlier present in parent layout). Kit example: `src/routes/+layout.ts` and add `export const ssr = false;`
 
+Integration of Ionic
+
+- `npm i @ionic/core ionic-svelte`
+- create a theme folder/file that contains the colours for Ionic (see starterfiles/theme). Example: https://raw.githubusercontent.com/Tommertom/svelte-ionic-app/main/starterfiles/theme/variables.css
+- the top-route layout file `+layout.svelte` (Kit) or top root module (others) needs to run `setupIonicSvelte()` and import the theme stylesheet before anything else - also see starterfiles/+layout.svelte. Example:
+
+```
+<script lang="ts">
+	import { setupIonicBase } from 'ionic-svelte';
+
+	/* Theme variables */
+	import '../theme/variables.css';
+
+	/* load and register all components - you can also import separately to code split */
+    import 'ionic-svelte/components/all';
+
+	/* run base configuration code from ionic/core */
+	setupIonicBase();
+</script>
+
+<ion-app>
+   <slot />
+</ion-app>
+
+```
+
+And then start working on the content of the app in `+page.svelte`:
+
+```
+	Hi there <ion-button>test</ion-button>
+```
+
+If you get a 500 internal error-error then likely SSR is not disabled. Making a SvelteKit app a real SPA really requires two steps - adapter static and `ssr=false`
+
+Starterfiles on github: https://github.com/Tommertom/svelte-ionic-app/tree/main/starterfiles
+Use these files as reference to see how to do the final steps integrating Ionic in your svelte project.
+
+Code for this library - https://github.com/Tommertom/svelte-ionic-app
+
+Ionic-svelte on NPMjs- https://www.npmjs.com/package/ionic-svelte
+
+## Code Splitting to reduce bundle size
+
+In order to reduce bundle size or limit the size of individual chunks, you can replace the import in main layout file. Example: if you replace the line `import 'ionic-svelte/components/all';` with imports like below. This can reduce the bundle for that chunk drastically. The import of `all` will result to at least an 800kb chunk (80 components), so it is worth it to change this.
+
+Next you can choose to load specific components only where you use them.
+
+Please note, you only need to import a component only once, as the import registers the webcomponent globally. So this saves you lots of imports, reducing the bundle as well (compared to tree-shaking).
+
+And never forget to at least `import 'ionic-svelte/components/ion-app';` - as this one is in the main layout.
+
+```
+	import 'ionic-svelte/components/ion-app';
+	import 'ionic-svelte/components/ion-card';
+	import 'ionic-svelte/components/ion-card-title';
+	import 'ionic-svelte/components/ion-card-subtitle';
+	import 'ionic-svelte/components/ion-card-header';
+	import 'ionic-svelte/components/ion-card-content';
+	import 'ionic-svelte/components/ion-chip';
+	import 'ionic-svelte/components/ion-button';
+```
+
+## How to use components
+
+Ionic components are webcomponents, so appear in your template just like other dom elements. They don't need ECMA imports like `import {IonCard} from '...`.
+
+```
+<ion-card>
+Here content
+</ion-card>
+```
+
+So you can also apply css classes to them, also when wanting to tweak UI via the shadow dom/web-parts.
+
+## Special components
+
+Due to router issues and overlays, there are three special compontents included that override/replace the ionic standard webcomponents:
+
+- IonTabs - fixing some default selected tabs as well as fixing compatibility with the router
+- IonPage - wrapping the page and providing the ion-lifecycle hooks. And implementing a basic animation
+- IonNav - supporting IonNav
+
+To be imported from the package: `import { IonTab } from 'ionic-svelte';` etc..
+
+See HOWTOs on how to implement tabs and nav. For Page - just check https://ionic-svelte.firebaseapp.com/
+
+https://github.com/Tommertom/ionic-svelte-tabs-howto
+
+https://github.com/Tommertom/ionic-svelte-nav-howto
+
+## Typesafety and type-ahead support
+
+The package provides typings for all webcomponents. These can be included in your IDE by adding the following to your the `compilerOptions` section in `tsconfig.json`:
+
+```
+		"typeRoots": [
+			"./node_modules/ionic-svelte"
+		],
+		"types": [
+			"ionic-svelte"
+		]
+```
+
+Sample `tsconfig.json`:
+
+```
+{
+	"extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"typeRoots": [
+			"./node_modules/ionic-svelte"
+		],
+		"types": [
+			"ionic-svelte"
+		]
+	}
+}
+```
+
+## How to contribute?
+
+Would you like to contribute to this project? Great!
+
+First and foremost - share you feedback!!!!!
+
+- For issues with `ionic-svelte` library - https://github.com/Tommertom/svelte-ionic-npm/issues
+- Or find me on Ionic's discord server, with a separate Ionic Svelte Channel - https://discordapp.com/channels/520266681499779082/1049388501629681675
+
+And if you want to do more - what is there to do:
+
+- EASY - fix typos (also great for your Github online profile - there are many), add examples for components
+- MEDIUM - fix some minor bugs ( e.g. SvelteSpring), improve layout of pages (e.g. SvelteTransition)
+- HARD - look at the open issues below
+
+When you do a PR, make sure you explain what you did and why!
+
+## Issues - help needed/workaround provided
+
+- Ion Back Button - requires `default-href` to show in toolbar (page transitions need to add `can-go-back` class)
+
+- IonTabs needs to manually call the select method of ion-tabs to ensure the selectedTab prop is really acted upon. Issue known: https://github.com/ionic-team/ionic-framework/issues/20060. Gives a brief undesireable view on the wrong tab. Might need to look into the angular/react/vue way as these packages don't have this issue. Probably tabs is wired up in the router.
+
+- Gestures: Need a timeout to get proper style value even though I am using onMount??
+
+- Ion Footer in Modal looks not ok - need to test in inline modal as well.
+
+- bind:value does not seem to work on input and other form elements, so a click handler is needed - which is cumbersome - https://github.com/sveltejs/svelte/issues/892 - so probably not solvable without support by Ionic or Svelte - or we need to create wrappers for all elements - which is quite some work and you will be required to manually import all elements you use per page (like with Vue and React) - which seems a drag to me?
+
+SvelteKit form actions make the usage of bind:value even obsolete. So that is the go-to way route anyway - https://kit.svelte.dev/docs/form-actions
+
+Please note - if you use a library such as https://svelte-forms-lib-sapper-docs.vercel.app/introduction together with Yup schemas https://github.com/jquense/yup, the bind:value-issue actually becomes less relevant as you will have the library handle the events and you will use the observables to manage validation and final values to use for further processing. See https://blog.logrocket.com/form-validation-in-svelte/ for nice examples.
+
+- Some styles are reported as unused - related to md and ios options for webcomponents? Or need to be discarded. Probably issue with webcomponents and the nature of Ionic being sensitive to md or ios style (as part of its config). Or the way Svelte/vite checks for unused css.
+
+- Add IonPage, IonTabs and IonBackButton are not part of the default export - these are svelte components, so index.ts cannot handle these (?)
+
+- Ion Icons implementation only uses icon-property syntax. Name/md/ios will not function
+
+- In some cases IonPage clips the content enclosed - then you need to remove main tags in IonPage
+
+- Routerlink, href and similar props on components like ion-item do not work properly, but I wonder if support is needed
+
+- Menucontroller does not see the menu by default - you need to register the menu item manually - extra function added to help you with that (`registerMenu(menu-id:string)`) - `<ion-menu {side} content-id="main" menu-id="mainmenu">`see Menu.svelte with working example
+
+- Nav component - works nicely, but implementation might be dirty (leaking DOM elements?). ion-nav-link not implemented.
+
+- ItemSliding sometimes does not catch the gesture - known issue - needs fix in @ionic/core
+
+- Many "File not found errors" on css.map files in the demo app. I frankly don't really mind these. Maybe it is easy to get rid of these, but for now, I leave it.
+
+Check https://github.com/Tommertom/svelte-ionic-app/issues for most recent overview of issues.
+
+## Things not being implemented
+
+`ion-router-link`, `ion-router`,`ion-route`, `ion-route-redirect` and `ion-router-outlet` - these are imho obsolete because of usage of the router in this project. But tell me if I am wrong here!
+
+`ion-nav-link` - not sure why not, but haven't used it yet in a project. Maybe my bad. What do you think?
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Tommertom/svelte-ionic-app&type=Date)](https://star-history.com/#Tommertom/svelte-ionic-app&Date)
+
+## Acknowledgements
+
+Logo by Brett Peary: https://brettpeary.com/
+
+Ionic UI code: https://github.com/ionic-team/ionic-docs/tree/main/static/demos/api
+
+README inspiration: https://github.com/gitpoint/git-point/blob/master/README.md
+
+PWA logo: https://github.com/webmaxru/progressive-web-apps-logo
+
+Borat logo: https://sapper.svelte.dev/
+
+Raymondboswel's repo: https://github.com/raymondboswel/ionic-svelte-example
